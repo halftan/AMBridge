@@ -3,7 +3,6 @@ package com.ecarx.ambridge.utils
 import android.content.Context
 import android.util.Log
 import com.ecarx.ambridge.control.PlaybackControl
-import net.bytebuddy.android.AndroidClassLoadingStrategy
 import net.bytebuddy.implementation.MethodDelegation
 import net.bytebuddy.matcher.ElementMatchers
 
@@ -75,6 +74,7 @@ class MediaCenterHelper(private val context: Context, private val sdk: DexLib) {
                 "unregister",
                 Any::class.java
             )
+            methodUnregister.invoke(mediaCenterAPI, token)
             token = null
         }
     }
