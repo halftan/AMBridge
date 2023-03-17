@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AMBridge</string>
+    <string name="btn_play_pause">播放/暂停</string>
+    <string name="btn_next">下一首</string>
+    <string name="btn_prev">前一首</string>
+    <string name="btn_stop">停止</string>
+    <string name="btn_get_info">获取信息</string>
+    <string name="btn_stop_get_info">停止获取信息</string>
+</resources>

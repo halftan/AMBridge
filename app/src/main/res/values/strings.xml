@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AMBridge</string>
+    <string name="btn_play_pause">Play/Pause</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_prev">Previous</string>
+    <string name="btn_stop">Stop</string>
+    <string name="btn_get_info">Get Info</string>
+    <string name="btn_stop_get_info">Stop Get Info</string>
+</resources>
