@@ -1,17 +1,22 @@
 package com.ecarx.ambridge;
 
-import android.app.RemoteAction;
+import android.app.Notification;
+import android.content.ComponentName;
 import android.content.Context;
-import android.media.AudioManager;
-import android.media.MediaMetadataRetriever;
-import android.media.RemoteController;
+import android.media.MediaMetadata;
+import android.media.session.MediaController;
+import android.media.session.MediaSessionManager;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
 
-public class MediaInfoReceiverService extends NotificationListenerService implements RemoteController.OnClientUpdateListener {
-    String TAG = MediaInfoReceiverService.class.getName();
-    private RemoteController mRemoteController;
+import com.ecarx.ambridge.control.PlaybackControl;
+
+import java.util.List;
+
+public class MediaInfoReceiverService extends NotificationListenerService {
+    public static final String TAG = MediaInfoReceiverService.class.getName();
+    public static final String PACKAGE_NAME = "com.apple.android.music";
     private Context mContext;
     private Boolean mRegistered = false;
 
@@ -23,56 +28,47 @@ public class MediaInfoReceiverService extends NotificationListenerService implem
     public void onCreate() {
         Log.i(TAG, "onCreate");
         mContext = getApplicationContext();
-        mRemoteController = new RemoteController(mContext, this);
-        Log.i(TAG, "Registering remote controller");
-        if (!((AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE)).registerRemoteController(mRemoteController)) {
-            Log.e(TAG, "Register failed!");
-        } else {
-            Log.i(TAG, "Register done!");
-            mRegistered = true;
-        }
+        fetchLatestPlaybackInfo();
     }
 
     @Override
     public void onDestroy() {
-        if (mRegistered) {
-            ((AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE)).unregisterRemoteController(mRemoteController);
-        }
     }
 
     public void onNotificationPosted(StatusBarNotification sbn) {
-        Log.i(TAG, sbn.getNotification().toString());
-        if (sbn.getPackageName().contains("music")) {
-            Log.i(TAG, "Music playing by " + sbn.getPackageName());
+        if (sbn.getNotification().category.equals(Notification.CATEGORY_TRANSPORT)) {
+            Log.i(TAG, "Music playback by " + sbn.getPackageName());
+            Log.i(TAG, sbn.getNotification().toString());
+            fetchLatestPlaybackInfo();
         }
     }
 
-    @Override
-    public void onClientChange(boolean b) {
-
-    }
-
-    @Override
-    public void onClientPlaybackStateUpdate(int i) {
-        Log.i(TAG, "Playback state changed to = " + i);
-    }
-
-    @Override
-    public void onClientPlaybackStateUpdate(int i, long l, long l1, float v) {
-        Log.i(TAG, "Playback state changed to = " + i + " l=" + l + " l1=" + l1 + " v=" + v);
-    }
-
-    @Override
-    public void onClientTransportControlUpdate(int i) {
-
-    }
-
-    @Override
-    public void onClientMetadataUpdate(RemoteController.MetadataEditor metadataEditor) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Metadata updated");
-        builder.append(metadataEditor.getString(MediaMetadataRetriever.METADATA_KEY_TITLE, "unknown"));
-        builder.append(metadataEditor.getString(MediaMetadataRetriever.METADATA_KEY_ALBUM, "unknown"));
-        Log.i(TAG, builder.toString());
+    private void fetchLatestPlaybackInfo() {
+        MediaSessionManager m = getSystemService(MediaSessionManager.class);
+        if (m == null) {
+            Log.e(TAG, "Get MediaSessionManager failed");
+            return;
+        }
+        ComponentName component = new ComponentName(getApplicationContext(), MediaInfoReceiverService.class);
+        List<MediaController> sessions = m.getActiveSessions(component);
+        Log.i(TAG, "Get sessions: count=" + sessions.size());
+        for (MediaController session : sessions) {
+            Log.i(TAG, "Session info: " + session.getPlaybackInfo().toString());
+            Log.i(TAG,
+                    "Metadata: " +
+                            " artist=" +
+                            session.getMetadata().getString(MediaMetadata.METADATA_KEY_ARTIST) +
+                            " title=" +
+                            session.getMetadata().getString(MediaMetadata.METADATA_KEY_TITLE) +
+                            " album=" +
+                            session.getMetadata().getString(MediaMetadata.METADATA_KEY_ALBUM));
+            Log.i(TAG, "Metadata: " + session.getMetadata().getString(MediaMetadata.METADATA_KEY_ALBUM_ART_URI));
+            PlaybackControl.Companion.getInstance(mContext).fire(
+                    session.getMetadata().getString(MediaMetadata.METADATA_KEY_ARTIST),
+                    session.getMetadata().getString(MediaMetadata.METADATA_KEY_ALBUM),
+                    session.getMetadata().getString(MediaMetadata.METADATA_KEY_TITLE),
+                    session.getMetadata().getString(MediaMetadata.METADATA_KEY_ALBUM_ART_URI)
+            );
+        }
     }
 }

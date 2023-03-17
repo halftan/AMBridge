@@ -6,4 +6,6 @@
     <string name="btn_stop">Stop</string>
     <string name="btn_get_info">Get Info</string>
     <string name="btn_stop_get_info">Stop Get Info</string>
+    <string name="btn_init_car_api">Init Car API</string>
+    <string name="btn_call_apple_music">Call Apple Music</string>
 </resources>

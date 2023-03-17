@@ -91,13 +91,58 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_set_dummy_playbackinfo"
+                android:id="@+id/button_init_car_api"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onSetDummyPlaybackInfoClick"
-                android:text="Set Dummy Playback Info" />
+                android:onClick="onInitCarApiClick"
+                android:text="@string/btn_init_car_api" />
 
+            <Button
+                android:id="@+id/button_call_apple_music"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCallAppleMusicClick"
+                android:text="@string/btn_call_apple_music" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/text_artist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="THIS IS ARTIST" />
+
+            <TextView
+                android:id="@+id/text_album"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="THIS IS ALBUM" />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="32dp"
+                android:text="THIS IS TITLE" />
+
+            <ImageView
+                android:id="@+id/image_artwork"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars"
+                android:contentDescription="artwork" />
         </LinearLayout>
 
     </LinearLayout>

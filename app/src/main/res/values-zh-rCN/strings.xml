@@ -7,4 +7,6 @@
     <string name="btn_stop">停止</string>
     <string name="btn_get_info">获取信息</string>
     <string name="btn_stop_get_info">停止获取信息</string>
+    <string name="btn_init_car_api">初始化车机 API</string>
+    <string name="btn_call_apple_music">唤起 Apple Music</string>
 </resources>
