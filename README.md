@@ -6,11 +6,11 @@ A bridge between Apple Music and Zeekr's automotive OS.
 
 1. Use `Log.e` because Zeekr OS only shows `error` level in production vehicles.
 2. ecarx openapi has several caller verification:
-  1. Package name got SHA1-ed and compared with the appKey in your metadata, appSign in `license.txt`
-  2. You need to have an encrypted `license.txt` in your assets
-  3. The public key used to decrypt `license.txt` can be found in CoreService.apk (extract it from your vehicle)
-  4. Your package name and app uid also got verified. (`getPackageName()` must in `getPackagesForUid`)
-  5. The decrypted `license.txt` looks like this:
+    1. Package name got SHA1-ed and compared with the appKey in your metadata, appSign in `license.txt`
+    2. You need to have an encrypted `license.txt` in your assets
+    3. The public key used to decrypt `license.txt` can be found in CoreService.apk (extract it from your vehicle)
+    4. Your package name and app uid also got verified. (`getPackageName()` must in `getPackagesForUid`)
+    5. The decrypted `license.txt` looks like this:
   <details>
   <summary>Expand to see JSON</summary>
 
