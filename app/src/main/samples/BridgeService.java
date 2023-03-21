@@ -1,4 +1,4 @@
-package com.ecarx.samples;
+package com.ecarxfan.samples;
 
 import android.app.PendingIntent;
 import android.app.Service;
@@ -28,60 +28,60 @@ import android.view.WindowManager;
 import android.widget.Toast;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import com.ecarx.eas.framework.sdk.ECarXAPIBase;
-import com.ecarx.eas.sdk.ECarXApiClient;
-import com.ecarx.eas.sdk.mediacenter.ContentInfo;
-import com.ecarx.eas.sdk.mediacenter.MediaCenterAPI;
-import com.ecarx.eas.sdk.mediacenter.MediaListInfo;
-import com.ecarx.eas.sdk.mediacenter.MediaListsInfo;
-import com.ecarx.eas.sdk.mediacenter.MusicClient;
-import com.ecarx.eas.sdk.mediacenter.MusicPlaybackInfo;
-import com.ecarx.eas.sdk.mediacenter.control.IMediaControlClientAPI;
-import com.ecarx.eas.sdk.mediacenter.control.MediaControlClient;
-import com.ecarx.eas.sdk.mediacenter.exception.MediaCenterException;
-import com.ecarx.eas.sdk.policy.api.IAudioAttributes;
-import com.ecarx.eas.sdk.policy.api.PolicyAPI;
-import com.ecarx.eas.sdk.vehicle.api.VehicleAPI;
-import com.ecarx.eas.sdk.vehicle.api.carinfo.ICarInfo;
-import com.tencent.taes.remote.api.policy.bean.GuiConstants;
-import com.tencent.wecarflow.bridge.receiver.BootReceiver;
-import com.tencent.wecarflow.bridge.semantic.SemanticSearcher;
-import com.tencent.wecarflow.bridge.semantic.maker.MusicJsonMaker;
-import com.tencent.wecarflow.bridge.utils.Channel;
-import com.tencent.wecarflow.bridge.utils.ClickGap;
-import com.tencent.wecarflow.bridge.utils.MBLogUtils;
-import com.tencent.wecarflow.bridge.wrapper.ContentInfoWrapper;
-import com.tencent.wecarflow.bridge.wrapper.MediaInfoWrapper;
-import com.tencent.wecarflow.bridge.wrapper.MediaListInfoWrapper;
-import com.tencent.wecarflow.bridge.wrapper.MediaListsInfoWrapper;
-import com.tencent.wecarflow.contentsdk.ConnectionListener;
-import com.tencent.wecarflow.contentsdk.ContentManager;
-import com.tencent.wecarflow.contentsdk.ContentSDK;
-import com.tencent.wecarflow.contentsdk.bean.AreaContentResponseBean;
-import com.tencent.wecarflow.contentsdk.bean.BaseSongItemBean;
-import com.tencent.wecarflow.contentsdk.bean.EntryInfo;
-import com.tencent.wecarflow.contentsdk.bean.EntryListResponseBean;
-import com.tencent.wecarflow.contentsdk.callback.AreaContentResult;
-import com.tencent.wecarflow.contentsdk.callback.EntryListResult;
-import com.tencent.wecarflow.contentsdk.callback.MediaPlayResult;
-import com.tencent.wecarflow.controlsdk.AppState;
-import com.tencent.wecarflow.controlsdk.AppStateListener;
-import com.tencent.wecarflow.controlsdk.AudioFocusChangeListener;
-import com.tencent.wecarflow.controlsdk.BindListener;
-import com.tencent.wecarflow.controlsdk.FlowPlayControl;
-import com.tencent.wecarflow.controlsdk.MediaChangeListener;
-import com.tencent.wecarflow.controlsdk.MediaInfo;
-import com.tencent.wecarflow.controlsdk.MessageConstant;
-import com.tencent.wecarflow.controlsdk.PlayModeCode;
-import com.tencent.wecarflow.controlsdk.PlayStateListener;
-import com.tencent.wecarflow.controlsdk.QueryCallback;
-import com.tencent.wecarflow.controlsdk.callback.SemanticResult;
-import com.tencent.wecarflow.controlsdk.data.LaunchConfig;
-import com.tencent.wecarflow.controlsdk.data.LyricRowBean;
-import com.tencent.wecarflow.controlsdk.data.NavigationInfo;
-import com.tencent.wecarflow.controlsdk.data.SemanticSearchConfig;
-import com.tencent.wecarflow.controlsdk.data.UsageInfo;
-import com.tencent.wecarflow.controlsdk.utils.LyricChangedListener;
+import com.ecarxfan.eas.framework.sdk.ECarXAPIBase;
+import com.ecarxfan.eas.sdk.ECarXApiClient;
+import com.ecarxfan.eas.sdk.mediacenter.ContentInfo;
+import com.ecarxfan.eas.sdk.mediacenter.MediaCenterAPI;
+import com.ecarxfan.eas.sdk.mediacenter.MediaListInfo;
+import com.ecarxfan.eas.sdk.mediacenter.MediaListsInfo;
+import com.ecarxfan.eas.sdk.mediacenter.MusicClient;
+import com.ecarxfan.eas.sdk.mediacenter.MusicPlaybackInfo;
+import com.ecarxfan.eas.sdk.mediacenter.control.IMediaControlClientAPI;
+import com.ecarxfan.eas.sdk.mediacenter.control.MediaControlClient;
+import com.ecarxfan.eas.sdk.mediacenter.exception.MediaCenterException;
+import com.ecarxfan.eas.sdk.policy.api.IAudioAttributes;
+import com.ecarxfan.eas.sdk.policy.api.PolicyAPI;
+import com.ecarxfan.eas.sdk.vehicle.api.VehicleAPI;
+import com.ecarxfan.eas.sdk.vehicle.api.carinfo.ICarInfo;
+import com.ecarxfan.taes.remote.api.policy.bean.GuiConstants;
+import com.ecarxfan.wecarflow.bridge.receiver.BootReceiver;
+import com.ecarxfan.wecarflow.bridge.semantic.SemanticSearcher;
+import com.ecarxfan.wecarflow.bridge.semantic.maker.MusicJsonMaker;
+import com.ecarxfan.wecarflow.bridge.utils.Channel;
+import com.ecarxfan.wecarflow.bridge.utils.ClickGap;
+import com.ecarxfan.wecarflow.bridge.utils.MBLogUtils;
+import com.ecarxfan.wecarflow.bridge.wrapper.ContentInfoWrapper;
+import com.ecarxfan.wecarflow.bridge.wrapper.MediaInfoWrapper;
+import com.ecarxfan.wecarflow.bridge.wrapper.MediaListInfoWrapper;
+import com.ecarxfan.wecarflow.bridge.wrapper.MediaListsInfoWrapper;
+import com.ecarxfan.wecarflow.contentsdk.ConnectionListener;
+import com.ecarxfan.wecarflow.contentsdk.ContentManager;
+import com.ecarxfan.wecarflow.contentsdk.ContentSDK;
+import com.ecarxfan.wecarflow.contentsdk.bean.AreaContentResponseBean;
+import com.ecarxfan.wecarflow.contentsdk.bean.BaseSongItemBean;
+import com.ecarxfan.wecarflow.contentsdk.bean.EntryInfo;
+import com.ecarxfan.wecarflow.contentsdk.bean.EntryListResponseBean;
+import com.ecarxfan.wecarflow.contentsdk.callback.AreaContentResult;
+import com.ecarxfan.wecarflow.contentsdk.callback.EntryListResult;
+import com.ecarxfan.wecarflow.contentsdk.callback.MediaPlayResult;
+import com.ecarxfan.wecarflow.controlsdk.AppState;
+import com.ecarxfan.wecarflow.controlsdk.AppStateListener;
+import com.ecarxfan.wecarflow.controlsdk.AudioFocusChangeListener;
+import com.ecarxfan.wecarflow.controlsdk.BindListener;
+import com.ecarxfan.wecarflow.controlsdk.FlowPlayControl;
+import com.ecarxfan.wecarflow.controlsdk.MediaChangeListener;
+import com.ecarxfan.wecarflow.controlsdk.MediaInfo;
+import com.ecarxfan.wecarflow.controlsdk.MessageConstant;
+import com.ecarxfan.wecarflow.controlsdk.PlayModeCode;
+import com.ecarxfan.wecarflow.controlsdk.PlayStateListener;
+import com.ecarxfan.wecarflow.controlsdk.QueryCallback;
+import com.ecarxfan.wecarflow.controlsdk.callback.SemanticResult;
+import com.ecarxfan.wecarflow.controlsdk.data.LaunchConfig;
+import com.ecarxfan.wecarflow.controlsdk.data.LyricRowBean;
+import com.ecarxfan.wecarflow.controlsdk.data.NavigationInfo;
+import com.ecarxfan.wecarflow.controlsdk.data.SemanticSearchConfig;
+import com.ecarxfan.wecarflow.controlsdk.data.UsageInfo;
+import com.ecarxfan.wecarflow.controlsdk.utils.LyricChangedListener;
 import ecarx.xsf.mediacenter.bean.IMediaContentType;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1254,7 +1254,7 @@ public class BridgeService extends Service {
                     }
                     MBLogUtils.i(BridgeService.TAG, "getRecommendList sxtt success：" + songList.toString());
                     BridgeService.this.mRecommendMap.put(1, areaContentResponseBean);
-                    ArrayList<com.ecarx.eas.sdk.mediacenter.MediaInfo> mediaInfoList = new ArrayList<>();
+                    ArrayList<com.ecarxfan.eas.sdk.mediacenter.MediaInfo> mediaInfoList = new ArrayList<>();
                     for (int i = 0; i < songList.size(); i++) {
                         mediaInfoList.add(new MediaInfoWrapper(songList.get(i), i));
                     }
@@ -1282,7 +1282,7 @@ public class BridgeService extends Service {
                     }
                     MBLogUtils.i(BridgeService.TAG, "getRecommendList dfb：" + songList.toString());
                     BridgeService.this.mRecommendMap.put(2, areaContentResponseBean);
-                    ArrayList<com.ecarx.eas.sdk.mediacenter.MediaInfo> mediaInfoList = new ArrayList<>();
+                    ArrayList<com.ecarxfan.eas.sdk.mediacenter.MediaInfo> mediaInfoList = new ArrayList<>();
                     for (int i = 0; i < songList.size(); i++) {
                         mediaInfoList.add(new MediaInfoWrapper(songList.get(i), i));
                     }
@@ -1394,10 +1394,10 @@ public class BridgeService extends Service {
                 }
 
                 @Override // com.ecarx.eas.sdk.mediacenter.MediaListInfo, com.ecarx.eas.sdk.mediacenter.AbstractMediaListInfo
-                public List<com.ecarx.eas.sdk.mediacenter.MediaInfo> getMediaList() {
-                    List<com.ecarx.eas.sdk.mediacenter.MediaInfo> infoList = BridgeService.this.buildMediaList();
+                public List<com.ecarxfan.eas.sdk.mediacenter.MediaInfo> getMediaList() {
+                    List<com.ecarxfan.eas.sdk.mediacenter.MediaInfo> infoList = BridgeService.this.buildMediaList();
                     String list = "";
-                    for (com.ecarx.eas.sdk.mediacenter.MediaInfo mediaInfo : infoList) {
+                    for (com.ecarxfan.eas.sdk.mediacenter.MediaInfo mediaInfo : infoList) {
                         list = mediaInfo.getTitle() + " ";
                     }
                     MBLogUtils.d(BridgeService.TAG, "size:" + infoList.size() + "content: " + list);
@@ -1415,8 +1415,8 @@ public class BridgeService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.ecarx.eas.sdk.mediacenter.MediaInfo> buildMediaList() {
-        List<com.ecarx.eas.sdk.mediacenter.MediaInfo> mediaList = new ArrayList<>();
+    public List<com.ecarxfan.eas.sdk.mediacenter.MediaInfo> buildMediaList() {
+        List<com.ecarxfan.eas.sdk.mediacenter.MediaInfo> mediaList = new ArrayList<>();
         MediaInfo mediaInfo = this.mCurrentMediaInfo;
         if (mediaInfo != null && MessageConstant.TYPE_VIDEO.equalsIgnoreCase(mediaInfo.getMediaType())) {
             MBLogUtils.d(TAG, "not push video list");
@@ -1817,8 +1817,8 @@ public class BridgeService extends Service {
             layoutParams.flags = 40;
             layoutParams.width = -2;
             layoutParams.height = -2;
-            layoutParams.x = com.tencent.car.wechatsdk.BuildConfig.VERSION_CODE;
-            layoutParams.y = com.tencent.car.wechatsdk.BuildConfig.VERSION_CODE;
+            layoutParams.x = com.ecarxfan.car.wechatsdk.BuildConfig.VERSION_CODE;
+            layoutParams.y = com.ecarxfan.car.wechatsdk.BuildConfig.VERSION_CODE;
             windowManager.addView(this.mFloatView, layoutParams);
             this.mFloatView.setOnTouchListener(new FloatingOnTouchListener(layoutParams, windowManager));
         }

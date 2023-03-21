@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.ecarx.ambridge'
+    namespace 'com.ecarxfan.ambridge'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.ecarx.ambridge"
+        applicationId "com.ecarxfan.ambridge"
         minSdk 28
         targetSdk 33
         versionCode 1

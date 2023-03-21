@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
+    <meta-data android:name="eCarX_OpenAPI_AppId" android:value=""/>
+    <meta-data android:name="eCarX_OpenAPI_AppKey" android:value=""/>
 
     <application
         android:allowBackup="true"

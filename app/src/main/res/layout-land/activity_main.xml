@@ -7,22 +7,123 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/layout_buttons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:gravity="top"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button_play_pause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_play_pause" />
+        <LinearLayout
+            android:id="@+id/layout_buttons"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="12dip"
+            android:gravity="start"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button_next"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/button_prev"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onPrevTrackClick"
+                android:text="@string/btn_prev" />
+
+            <Button
+                android:id="@+id/button_play_pause"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onPlayPauseClick"
+                android:text="@string/btn_play_pause" />
+
+            <Button
+                android:id="@+id/button_stop"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onStopClick"
+                android:text="@string/btn_stop" />
+
+            <Button
+                android:id="@+id/button_next"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onNextTrackClick"
+                android:text="@string/btn_next" />
+
+            <Button
+                android:id="@+id/button_get_info"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onGetInfoClick"
+                android:text="@string/btn_get_info" />
+
+            <Button
+                android:id="@+id/button_stop_get_info"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onStopGetInfoClick"
+                android:text="@string/btn_stop_get_info" />
+
+            <Button
+                android:id="@+id/button_init_car_api"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onInitCarApiClick"
+                android:text="@string/btn_init_car_api" />
+
+            <Button
+                android:id="@+id/button_call_apple_music"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCallAppleMusicClick"
+                android:text="@string/btn_call_apple_music" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_next" />
+            android:gravity="top"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/text_artist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="THIS IS ARTIST" />
+
+            <TextView
+                android:id="@+id/text_album"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="THIS IS ALBUM" />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="32dp"
+                android:text="THIS IS TITLE" />
+
+            <ImageView
+                android:id="@+id/image_artwork"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars"
+                android:contentDescription="artwork" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
