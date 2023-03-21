@@ -1,6 +1,10 @@
 # AMBridge
 
-A bridge between Apple Music and Zeekr's automotive OS.
+A bridge between Apple Music and Zeekr's automotive OS. (not even a prototype)
+
+## Current state
+
+Third party developers are not able to get a binder to **CoreService** (like hvac, mediacenter, etc).
 
 ### Caveats
 
