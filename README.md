@@ -6,6 +6,14 @@ A bridge between Apple Music and Zeekr's automotive OS. (not even a prototype)
 
 Third party developers are not able to get a binder to **CoreService** (like hvac, mediacenter, etc).
 
+You need to give this app permission to fetch notifications in order for playback info to work (artist, title, album, artwork)
+
+### What's implemented
+
+- Playback control
+- Media info display (need permission to get notifications)
+
+
 ### Caveats
 
 1. Use `Log.e` because Zeekr OS only shows `error` level in production vehicles.
